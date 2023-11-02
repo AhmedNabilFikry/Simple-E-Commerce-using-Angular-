@@ -1,0 +1,23 @@
+
+<script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+
+<div class="container">
+   <div class="card m-4">
+     <div class="face face1">
+       <div class="content">
+        <i class="fa-brands fa-product-hunt"></i>
+         <h3>{{product?.name}}</h3>
+       </div>
+     </div>
+     <div class="face face2">
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">{{product?.description}}</li>
+          <li class="list-group-item">{{product?.price}}</li>
+          <li class="list-group-item">{{product?.quantity}}</li>
+        </ul>
+        <button type="submit" class="btn btn-info" [routerLink]="['/product']">Back To List</button>
+      </div>
+       </div>
+     </div>
+  </div>

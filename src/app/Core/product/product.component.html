@@ -1,0 +1,31 @@
+<script src="https://kit.fontawesome.com/95a02bd20d.js"></script>
+
+<div class="container ">
+  <button class="btn btn-primary mt-5" [routerLink]="['/product/new']">Add new Prodcut</button>
+  <div class="row">
+    <div class="col-4" *ngFor="let prod of products">
+      <div class="card m-4">
+        <div class="face face1">
+          <div class="content">
+            <i class="fa-brands fa-product-hunt"></i>
+            <h3>{{ prod?.name }}</h3>
+            <div>
+              <i class="bi text-primary  fs-4 bi-info-circle " [routerLink]="['/product','details',prod.id]"></i> |
+              <i class="bi text-warning  fs-4 bi-pencil-square" [routerLink]="['/product','edit',prod.id]"></i> |
+              <i class="bi text-danger fs-4 bi-trash" (click)="delete(prod.id)"></i>
+            </div>
+          </div>
+        </div>
+        <div class="face face2">
+          <div class="card-body">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">{{ prod?.description }}</li>
+              <li class="list-group-item">{{ prod?.price }}</li>
+              <li class="list-group-item">{{ prod?.quantity }}</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

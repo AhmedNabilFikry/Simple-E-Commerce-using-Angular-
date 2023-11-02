@@ -1,0 +1,72 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <form class="custom-form" [formGroup]="ProductForm" (submit)="GetData($event)">
+        <h2 class="text-primary">Add product</h2>
+        <div class="form-group">
+          <label for="name">Product name</label>
+          <input type="text" class="form-control" id="name" formControlName="name"
+            required [ngClass]="{
+              'is-invalid': !nameControl?.valid && nameControl?.touched,
+              'is-valid': nameControl?.valid
+            }">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div id="name" class="invalid-feedback" *ngIf="nameControl?.errors && nameControl?.hasError('required')">
+            Name is invalid
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="description">Description</label>
+          <input type="text" class="form-control" id="description" formControlName="description"
+            required [ngClass]="{
+              'is-invalid': !descriptionControl?.valid && descriptionControl?.touched,
+              'is-valid': descriptionControl?.valid
+            }">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div id="description" class="invalid-feedback"
+            *ngIf="descriptionControl?.errors && descriptionControl?.hasError('required')">
+            This field is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="price">Price</label>
+          <input type="number" class="form-control" id="price" formControlName="price"
+            required [ngClass]="{
+              'is-invalid': !priceControl?.valid && priceControl?.touched
+            }">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div id="price" class="invalid-feedback"
+            *ngIf="priceControl?.errors && priceControl?.hasError('required')">
+            This field is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="quantity">Quantity</label>
+          <input type="number" class="form-control" id="quantity" formControlName="quantity"
+            required [ngClass]="{
+              'is-invalid': !quantityControl?.valid && quantityControl?.touched
+            }">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+          <div id="quantity" class="invalid-feedback"
+            *ngIf="quantityControl?.errors && quantityControl?.hasError('required')">
+            This field is required
+          </div>
+        </div>
+        <div >
+          <div class="d-flex justify-content-around">
+            <button type="submit" class="btn btn-primary m-3">Submit</button>
+            <button type="button" class="btn btn-danger m-3" (click)="cancel()"> cancel </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
